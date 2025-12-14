@@ -1,51 +1,102 @@
-# Predicting Student CGPA using Multiple Linear Regression in R
+# Student CGPA Prediction R
 
-## Project Overview
+A Multiple Linear Regression analysis in R to predict student CGPA based on academic and behavioral factors.
 
-This research project explores factors influencing the Cumulative Grade Point Average (CGPA) of university students using Multiple Linear Regression Modeling (MLRM). The study utilized primary data collected from 47 students at FAST NUCES Islamabad through surveys and online forms. Key predictors examined include Semester level, Weekly Study Hours, Attendance Percentage, and Daily Screen Time (non-academic).
+## Description
 
-This project was developed for the Probability and Statistics (MT-2005) course requirement.
+This project explores factors influencing the Cumulative Grade Point Average (CGPA) of university students using Multiple Linear Regression Modeling (MLRM). The analysis examines key predictors including:
 
-## Key Findings & Model
+- **Semester Level** - Current academic semester
+- **Weekly Study Hours** - Time spent studying per week
+- **Attendance Percentage** - Class attendance rate
+- **Daily Screen Time** - Non-academic screen time
 
-* **Model:** $CGPA = \beta_{0} + \beta_{1}(Semester) + \beta_{2}(Study Hours) + \beta_{3}(Attendance) + \beta_{4}(Screen Time) + \epsilon$.
-* **Significant Predictors (p < 0.05):**
-    * **Attendance (%):** Strongest positive predictor ($\beta_3 \approx 0.027$). Higher attendance correlates strongly with higher CGPA.
-    * **Screen Time (hours/day):** Significant negative predictor ($\beta_4 \approx -0.032$). More non-academic screen time correlates with lower CGPA.
-    * **Study Hours (hours/week):** Significant negative predictor ($\beta_2 \approx -0.014$). This counter-intuitive result suggests potential study inefficiency or stress associated with very high study hours in the sampled group.
-* **Marginally Significant Predictor:**
-    * **Semester:** Negative association ($\beta_1 \approx -0.058$, $p \approx 0.081$). Suggests CGPA may slightly decrease in later semesters, possibly due to increased difficulty, though not strongly statistically significant in this model.
-* **Model Performance:** The MLRM model explains approximately 47.4% of the variance in CGPA ($R^2 \approx 0.4741$). The Mean Squared Error (MSE) was approximately 0.0585.
+### Key Findings
 
-## Tech Stack
+| Predictor | Effect | Significance |
+|-----------|--------|--------------|
+| Attendance (%) | Positive (+0.027) | p < 0.05 |
+| Screen Time (hrs/day) | Negative (-0.032) | p < 0.05 |
+| Study Hours (hrs/week) | Negative (-0.014) | p < 0.05 |
+| Semester | Negative (-0.058) | p ≈ 0.081 |
 
-* **Language:** R
-* **Core R Packages:** (Verify from `analysis.R`)
-    * Base R (`read.csv`, `lm`, `summary`)
-    * Potentially `readr`, `dplyr`, `ggplot2` for data handling/visualization.
+**Model Performance:** R² ≈ 0.474, MSE ≈ 0.059
 
-## Dataset Privacy Note
+## Project Structure
 
-* The dataset (`Dataset.csv`) used for this analysis was collected directly from students and contains sensitive information.
-* **This dataset is NOT publicly available in this repository due to student privacy concerns.**
-* The `analysis.R` script is provided for reviewing the methodology and statistical analysis performed.
+```
+.
+├── analysis.R          # Main R script for MLRM analysis
+├── LICENSE             # MIT License
+├── CONTRIBUTING.md     # Contribution guidelines
+├── CHANGELOG.md        # Version history
+├── .editorconfig       # Editor configuration
+├── .gitignore          # Git ignore rules
+└── README.md           # This file
+```
 
-## Setup
+## Installation
 
-1.  **Prerequisites:** Install R and RStudio.
-2.  **Clone:** `git clone https://github.com/ApatheticMioz/student-cgpa-prediction-r.git`
-3.  **Install Packages:** Open R/RStudio and install any necessary packages used in `analysis.R`, e.g., `install.packages("dplyr")`.
+### Prerequisites
+
+- [R](https://cran.r-project.org/) (version 4.0 or higher recommended)
+- [RStudio](https://posit.co/downloads/) (optional but recommended)
+
+### Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ApatheticMioz/student-cgpa-prediction-r.git
+   cd student-cgpa-prediction-r
+   ```
+
+2. Install required R packages:
+   ```r
+   install.packages("corrplot")
+   ```
 
 ## Usage
 
-1.  Open `analysis.R` in RStudio.
-2.  **(Requires Dataset Access)** If you have authorized access to an anonymized version of `Dataset.csv`, place it in the correct path relative to the script.
-3.  Run the script (`source("analysis.R")` or run lines).
-4.  Examine console output for model summaries, coefficients, p-values, R-squared, and MSE.
+1. Open `analysis.R` in RStudio or your preferred R IDE
 
-## Project Structure
-├── analysis.R          # R script for data analysis and MLRM modeling
+2. **Dataset Note:** The original dataset is not included due to privacy concerns. To run the analysis, provide a CSV file with the following columns:
+   - `Semester` - Numeric (1-8)
+   - `Study.Hours.Week` - Numeric (hours per week)
+   - `Attendance` - Numeric (percentage 0-100)
+   - `Screen.Time` - Numeric (hours per day)
+   - `CGPA` - Numeric (0-4.0)
 
-└── (Dataset.csv) # Dataset file (NOT INCLUDED - PRIVACY)
+3. Update the file path in `analysis.R`:
+   ```r
+   setwd("your/data/path")
+   data <- read.csv("your_dataset.csv")
+   ```
 
----
+4. Run the script:
+   ```r
+   source("analysis.R")
+   ```
+
+5. View outputs:
+   - Summary statistics
+   - Box and whisker plots
+   - Scatter plot matrix
+   - Correlation heatmap
+   - MLRM model summary
+   - Model evaluation metrics (MSE, R²)
+
+## Dependencies
+
+| Package | Purpose |
+|---------|---------|
+| `corrplot` | Correlation matrix visualization |
+
+## Status
+
+**Archived / Refactored**
+
+This project has been standardized for public archival.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

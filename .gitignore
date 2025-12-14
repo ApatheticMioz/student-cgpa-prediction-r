@@ -1,0 +1,64 @@
+# R-specific
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# R package build artifacts
+*.tar.gz
+*.Rcheck/
+
+# Generated files
+*.html
+*.pdf
+*.docx
+
+# Data files (privacy)
+*.csv
+*.xlsx
+*.xls
+data/
+
+# IDE and editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Compiled binaries
+*.exe
+*.o
+*.out
+*.dll
+*.so
+
+# Python (if used for preprocessing)
+__pycache__/
+*.py[cod]
+venv/
+.env
+
+# Node.js (if used)
+node_modules/
+dist/
+build/
+
+# Archives
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Logs
+*.log
+logs/
